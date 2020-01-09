@@ -1,0 +1,19 @@
+SELECT *
+FROM prices
+WHERE product_id IN (2,3,4)
+
+SELECT product_name, MAX(price) FROM prices
+
+SELECT SUM(quantity), type
+FROM stock
+GROUP BY type
+
+SELECT SUM(quantity), type
+FROM stock
+GROUP BY type
+HAVING SUM(quantity) >5
+
+SELECT COUNT(product_name)
+FROM prices
+INNER JOIN stock ON stock.product_id=prices.product_id
+HAVING SUM(quantity)>10
